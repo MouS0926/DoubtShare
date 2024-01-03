@@ -96,6 +96,25 @@ doubtRoute.post("/accept/:doubtId", auth, async (req, res) => {
   
         // Save the updated doubt
         await existingDoubt.save();
+
+        
+      // io.to(existingDoubt.userId).emit("doubtAccepted", {
+      //   doubtId: existingDoubt._id,
+      //   tutorId: tutorId,
+      // });
+      // io.to(tutorId).emit("doubtAccepted", {
+      //   doubtId: existingDoubt._id,
+      //   tutorId: tutorId,
+      // });
+
+      // // Send a chat message from the tutor to the user
+      // const chatMessage = {
+      //   doubtId: existingDoubt._id,
+      //   userId: existingDoubt.userId,
+      //   message: "Hello, let's start the chat!",
+      // };
+
+      // io.to(existingDoubt.userId).emit("message", chatMessage);
   
         res.status(200).send({ msg: "Doubt accepted successfully" });
       } else {
