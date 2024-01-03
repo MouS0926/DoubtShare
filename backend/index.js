@@ -68,9 +68,9 @@ io.on("connection", (socket) => {
  
 
 
-  server.listen(3001, () => {
-    console.log("SERVER RUNNING");
-  });
+//   server.listen(3001, () => {
+//     console.log("SERVER RUNNING");
+//   });
 
 
 app.listen(8080,async()=>{
