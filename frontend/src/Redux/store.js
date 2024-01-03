@@ -4,12 +4,17 @@ import { thunk } from "redux-thunk";
 import { loginReducer } from "./Reducer/loginReducer";
 import { doubtReducer } from "./Reducer/doubtReducer";
 import { fetchdoubtReducer } from "./Reducer/fetchdoubtReducer";
+import { notifiedReducer } from "./Reducer/notifiedReducer";
+import { assignedReducer } from "./Reducer/assignedReducer";
 const rootReducer = combineReducers({
     userReducer,
     loginReducer,
     doubtReducer,
-    fetchdoubtReducer
+    fetchdoubtReducer,
+    notifiedReducer,
+    assignedReducer
     });
+  
    
    
 

@@ -8,6 +8,7 @@ const initialState = {
   token: null, 
   username: null, 
   userrole: null, 
+  userId:null
 };
 
 export const loginReducer = (state = initialState, {type,payload}) => {
@@ -27,6 +28,7 @@ export const loginReducer = (state = initialState, {type,payload}) => {
         token:payload.token, 
         username: payload.username, 
         userrole: payload.userrole, 
+        userId:payload.userId
       };
     case LOGIN_FAILURE:
       return {
@@ -37,6 +39,7 @@ export const loginReducer = (state = initialState, {type,payload}) => {
         token: null, 
         username: null, 
         userrole: null, 
+        userId:null
       };
     default:
       return state;

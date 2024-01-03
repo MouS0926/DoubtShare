@@ -1,15 +1,15 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchNotifiedDoubtsAction } from '../Redux/Action/tutorAction';
+import { fetchAssignedDoubtsAction, fetchNotifiedDoubtsAction } from '../Redux/Action/tutorAction';
 import { Link } from 'react-router-dom';
 
-export default function NotifiedList() {
+export default function Assignedlist() {
    let userId= localStorage.getItem('userId');
-   const { notified, loading, error } = useSelector((state) => state.notifiedReducer);
+   const { assigned, loading, error } = useSelector((state) => state.assignedReducer);
     const dispatch=useDispatch()
     useEffect(() => {
         const token = localStorage.getItem('token');
-        dispatch(fetchNotifiedDoubtsAction(token,userId));
+        dispatch(fetchAssignedDoubtsAction(token,userId));
       }, [dispatch]);
 
 
@@ -22,11 +22,11 @@ export default function NotifiedList() {
       }
     
     
-      if (notified.length === 0) {
+      if (assigned.length === 0) {
         return <div>No doubts .</div>;
       }
 
-      console.log(notified);
+      console.log(assigned);
 
 
 
@@ -48,7 +48,7 @@ export default function NotifiedList() {
             </tr>
           </thead>
           <tbody>
-          {notified && notified.map((el, index) => (
+          {assigned && assigned.map((el, index) => (
                   <tr key={index} className="border-b dark:border-neutral-500">
                     <td className="whitespace-nowrap px-6 py-4 font-medium">{index + 1}</td>
                     <td className="whitespace-nowrap px-6 py-4">{el.subject}</td>
@@ -63,16 +63,8 @@ export default function NotifiedList() {
 
                         <Link to={`/doubt/${el._id}`}>View</Link>
 
-                        {
-                            el.status=="Open"
-                            ?
-                            <button  class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Accept</button>
-                        :
-                        <button disabled class="rounded-md cursor-not-allowed bg-gray-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Accepted</button>
-                        }
-                    
+                        <button  class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Chat</button>
                     </td>
                    
                     

@@ -41,6 +41,7 @@ const dispatch = useDispatch();
                   <th scope="col" className="px-6 py-4">Description</th>
                   <th scope="col" className="px-6 py-4">Created At</th>
                   <th scope="col" className="px-6 py-4">Status</th>
+                  <th scope="col" className="px-6 py-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -55,6 +56,23 @@ const dispatch = useDispatch();
                         {doubt.status}</span>
 
                     </td>
+{
+    doubt.status=="Accepted" ?
+    <td className="whitespace-nowrap px-6 py-4">
+                    <button  class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        Chat</button>
+
+                    </td>
+                    :
+                    <td className="whitespace-nowrap px-6 py-4">
+                        <button disabled class="rounded-md cursor-not-allowed bg-gray-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                             Chat</button>
+
+                    </td>
+
+
+}
+                    
                    
                     
 

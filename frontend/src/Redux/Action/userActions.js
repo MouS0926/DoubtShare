@@ -26,12 +26,13 @@ export const signupAction = (userData) => async (dispatch) => {
     dispatch({type:LOGIN_LOADING});
     try {
       const response = await axios.post(`${apiURL}/auth/login`, userData);
-      const { token, username, userrole } = response.data;
+      const { token, username, userrole,userId } = response.data;
   
       // Save token, username, and user role in local storage (or in secure storage)
       localStorage.setItem('token', token);
       localStorage.setItem('username', username);
       localStorage.setItem('userrole', userrole);
+      localStorage.setItem('userId', userId);
   
       dispatch({type:LOGIN_SUCCESS,payload: userData});
     //   console.log(response.data);

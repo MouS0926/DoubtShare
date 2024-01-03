@@ -127,6 +127,21 @@ doubtRoute.post("/accept/:doubtId", auth, async (req, res) => {
   });
  
   
+  //single doubt 
+  doubtRoute.get("/:doubtId", auth, async (req, res) => {
+    try {
+      const doubtId = req.params.doubtId;
+  
+     
+      const doubtdetails = await doubtModel.findOne({ _id: doubtId});
+  
+      res.status(200).send(doubtdetails);
+    } catch (error) {
+      console.log(error);
+      res.status(400).send({ "err": error });
+    }
+  });
+
 // Get all doubts notified to a specific tutor
 doubtRoute.get("/notified/:tutorId", auth, async (req, res) => {
   try {
