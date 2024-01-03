@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { loginAction, signupAction } from '../Redux/Action/userActions';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
-
-
-
-    const [formData, setFormData] = useState({
-    name: '',
+ const [formData, setFormData] = useState({
     email: '',
     password: '',
-    signUpAs: '',
-    subject: '',
-    language: '',
-   
-  });
+    });
+
+  const dispatch=useDispatch()
   
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.loginReducer);
+
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -22,6 +23,18 @@ export default function Login() {
     }));
   };
 
+
+  const handleLogin = async () => {
+    await dispatch(loginAction(formData));
+
+    
+    if (!user.error) {
+      navigate('/dashboard');
+    }
+
+  };
+ 
+  // console.log(formData);
   return (
     <div>
 
@@ -40,73 +53,38 @@ export default function Login() {
 
               <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
-                  Sign Up
+                 Login
                 </div>
               </div>
 
               <div className="mx-auto max-w-xs">
-              <input
-                  className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                  type="text"
-                  placeholder="Name..."
-                />
+                <form action="" >
+              
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
                   type="password"
+                  name="password"
                   placeholder="Password"
+                  value={formData.password}
+                  onChange={handleChange}
                 />
-    <select
-        id="example-select"
-        name="example-select"
-        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      >
-
-        <option value="">Sign Up as </option>
-        <option value="tutor">Tutor</option>
-        <option value="student">Student</option>
-       
-      </select>
-
-      <select
-        id="example-select"
-        name="example-select"
-        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      >
-
-        <option value="">Select Subject</option>
-        <option value="React">React</option>
-        <option value="Javascript">Javascript</option>
-        <option value="Angular">Angular</option>
-        <option value="DSA">DSA</option>
-      </select>
+   
 
 
 
-      <select
-        id="example-select"
-        name="example-select"
-        className="mt-1 block w-full px-3 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-      >
-
-        <option value="">Select Language</option>
-        <option value="English">English</option>
-        <option value="Hindi">Hindi</option>
-        <option value="Bengali">Bengali</option>
-       
-      </select>
-
-                <button className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
-                  <svg className="w-6 h-6 -ml-2" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    
-                  </svg>
-                  <span className="ml-">Sign Up</span>
+                <button  onClick={handleLogin} type="button" className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
+                 
+                  <span className="ml-" >Login</span>
                 </button>
-               
+               </form>
               </div>
             </div>
           </div>

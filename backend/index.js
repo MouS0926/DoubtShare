@@ -25,26 +25,26 @@ app.use("/doubt",doubtRoute)
 
 
 
-// io.on("connection", (socket) => {
-//     console.log(`Socket connected: ${socket.id}`);
+io.on("connection", (socket) => {
+    console.log(`Socket connected: ${socket.id}`);
   
-//     // Listen for chat messages
-//     socket.on("chatMessage", async ({ doubtId, userId, message }) => {
-//       // You may want to validate the user and doubtId before processing the message
-//       // Save the chat message to the database or handle it as needed
-//       // ...
+    // Listen for chat messages
+    socket.on("chatMessage", async ({ doubtId, userId, message }) => {
+      // You may want to validate the user and doubtId before processing the message
+      // Save the chat message to the database or handle it as needed
+      // ...
   
-//       // Emit the message to the tutor and user
-//       io.to(userId).emit("message", { doubtId, userId, message });
-//       io.to(socket.id).emit("message", { doubtId, userId, message });
-//     });
+      // Emit the message to the tutor and user
+      io.to(userId).emit("message", { doubtId, userId, message });
+      io.to(socket.id).emit("message", { doubtId, userId, message });
+    });
   
-//     // Handle disconnect
-//     socket.on("disconnect", () => {
-//       console.log(`Socket disconnected: ${socket.id}`);
-//       // Additional cleanup logic if needed
-//     });
-//   });
+    // Handle disconnect
+    socket.on("disconnect", () => {
+      console.log(`Socket disconnected: ${socket.id}`);
+      // Additional cleanup logic if needed
+    });
+  });
   
 
  
