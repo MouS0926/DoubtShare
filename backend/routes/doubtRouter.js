@@ -29,7 +29,7 @@ doubtRoute.post("/add",auth,async(req,res)=>{
               if(availableTutor.length>0)
               {
                 await Promise.all(
-                    onlineTutors.map(async (tutor) => {
+                  availableTutor.map(async (tutor) => {
                       newDoubt.notifiedTutors.push(tutor._id);
                       
                     })
@@ -125,7 +125,40 @@ doubtRoute.post("/accept/:doubtId", auth, async (req, res) => {
       res.status(400).send({ err: error });
     }
   });
+ 
   
+// Get all doubts notified to a specific tutor
+doubtRoute.get("/notified/:tutorId", auth, async (req, res) => {
+  try {
+    const tutorId = req.params.tutorId;
+
+    // Find doubts where the tutor is notified
+    const notifiedDoubts = await doubtModel.find({
+      notifiedTutors: { $in: [tutorId] },
+    });
+
+    res.status(200).send(notifiedDoubts);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ "err": error });
+  }
+});
+
+//accepted doubt list for tutor
+doubtRoute.get("/assigned/:tutorId", auth, async (req, res) => {
+  try {
+    const tutorId = req.params.tutorId;
+
+    // Find doubts where the tutor is assigned
+    const assignedDoubts = await doubtModel.find({assignedTutor:tutorId });
+
+    res.status(200).send(assignedDoubts);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send({ "err": error });
+  }
+});
+
 
 module.exports={
     doubtRoute
