@@ -1,7 +1,7 @@
 import axios from "axios";
 import { LOGIN_FAILURE, LOGIN_LOADING, LOGIN_SUCCESS, SIGNUP_FAILURE, SIGNUP_LOADING, SIGNUP_SUCCESS } from "../actionTypes/actionTypes";
 
-const apiURL="http://localhost:8080"
+const apiURL="https://doubtshare-api.onrender.com"
 
 export const signupAction = (userData) => async (dispatch) => {
     dispatch({type:SIGNUP_LOADING});

@@ -2,7 +2,7 @@ import axios from 'axios';
 import { DOUBT_CREATE_FAILURE, DOUBT_CREATE_LOADING, DOUBT_CREATE_SUCCESS, FETCH_DOUBTS_FAILURE, FETCH_DOUBTS_LOADING, FETCH_DOUBTS_SUCCESS } from '../actionTypes/actionTypes';
 
 
-const apiURL = 'http://localhost:8080';
+const apiURL = 'https://doubtshare-api.onrender.com';
 
 export const doubtCreateLoading = () => ({
     type: DOUBT_CREATE_LOADING,

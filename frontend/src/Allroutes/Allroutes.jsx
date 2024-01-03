@@ -15,7 +15,7 @@ export default function Allroutes() {
   return (
     <div>
         <Routes>
-            <Route path="/signup" element={<Signup/>} />
+            <Route path="/" element={<Signup/>} />
             <Route path="/login" element={<Login/> } />
             <Route path="/dashboard" element={<Dashboard/> } />
             <Route path="/createdoubt" element={<Adddoubt/> } />

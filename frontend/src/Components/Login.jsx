@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAction, signupAction } from '../Redux/Action/userActions';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Login() {
  const [formData, setFormData] = useState({
@@ -85,6 +85,7 @@ export default function Login() {
                   <span className="ml-" >Login</span>
                 </button>
                </form>
+               <Link to="/">Not Registered yet? Sign Up Here</Link>
               </div>
             </div>
           </div>

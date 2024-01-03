@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { signupAction } from '../Redux/Action/userActions';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Signup() {
  const [formData, setFormData] = useState({
@@ -33,6 +33,7 @@ export default function Signup() {
     dispatch(signupAction(formData));
 
     if (!user.error) {
+      alert("Registered Successfully")
       navigate('/login'); // Redirect to login page using navigate
     }
   };
@@ -151,6 +152,7 @@ export default function Signup() {
                   <span className="ml-" >Sign Up</span>
                 </button>
                </form>
+               <Link to="/login">Already Registered? Login Here</Link>
               </div>
             </div>
           </div>

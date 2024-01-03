@@ -13,7 +13,7 @@ const token=localStorage.getItem("token")
 const [accepted, setAccepted] = useState(false);
 
 
-const apiUrl=`http://localhost:8080`
+const apiUrl=`https://doubtshare-api.onrender.com`
 
 useEffect(()=>{
     setLoading(true)

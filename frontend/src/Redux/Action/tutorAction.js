@@ -1,6 +1,6 @@
 import axios from "axios";
 import { FETCH_ASSIGNED_LOADING, FETCH_ASSIGNED_SUCCESS, FETCH_NOTIFIED_FAILURE, FETCH_NOTIFIED_LOADING, FETCH_NOTIFIED_SUCCESS } from "../actionTypes/actionTypes";
-const apiURL="http://localhost:8080"
+const apiURL="https://doubtshare-api.onrender.com"
 
 
  //fetch all notified doubts for tutor
