@@ -37,7 +37,7 @@ export default function Sidebar() {
         <li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4 h-12 flex items-center justify-center">
         <FaList style={{ color: 'white',fontSize: '25px' }} />
         <span className="ml-3 hidden sm:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
-            Doubts</span>
+            Doubts History</span>
         </li>
         </Link>
 
