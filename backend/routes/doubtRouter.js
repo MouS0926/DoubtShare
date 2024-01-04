@@ -60,8 +60,20 @@ doubtRoute.get("/alldoubts",auth,async(req,res)=>{
 
     try {
         const userId=req.body.userId
-        const mydoubts=await doubtModel.find({userId:userId})
-        
+        const statusFilter = req.query.status;
+
+        let query = { userId: userId };
+
+        if (statusFilter) {
+          query.status = statusFilter;
+        }
+
+
+
+        const mydoubts = await doubtModel.find(query);
+       
+
+
         res.status(200).send(mydoubts)
     } catch (error) {
         console.log(error);

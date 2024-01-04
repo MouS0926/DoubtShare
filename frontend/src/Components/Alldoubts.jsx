@@ -1,17 +1,20 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchDoubtsAction } from '../Redux/Action/doubtActions';
 
 export default function Alldoubts() {
+  const [statusFilter, setStatusFilter] = useState('');
 
 const dispatch = useDispatch();
   const { doubts, loading, error } = useSelector((state) => state.fetchdoubtReducer);
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    dispatch(fetchDoubtsAction(token));
-  }, [dispatch]);
+    dispatch(fetchDoubtsAction(token,statusFilter));
+  }, [dispatch,statusFilter]);
 
+
+  console.log(doubts);
   if (loading) {
     return <div>Loading...</div>; 
   }
@@ -21,12 +24,28 @@ const dispatch = useDispatch();
   }
 
 
-  if (doubts.length === 0) {
-    return <div>No doubts created yet.</div>;
-  }
 
+
+  // console.log(statusFilter);
   return (
     <div>
+
+
+<div className="relative">
+  <select
+    name="subject"
+    value={statusFilter}
+    onChange={(e) => setStatusFilter(e.target.value)}
+    className="w-40 p-3 border border-gray-300 rounded-md  focus:outline-none focus:border-blue-500"
+  >
+    <option value=""  selected>Select Status</option>
+    <option value="Open">Open</option>
+    <option value="Accepted">Accepted</option>
+    <option value="Close">Close</option>
+    
+  </select>
+  
+</div>
 
 
 <div class="flex flex-col overflow-x-auto">
@@ -79,6 +98,13 @@ const dispatch = useDispatch();
                   </tr>
                 ))}
            
+
+           {
+            doubts.length === 0?
+            "No doubts"
+            :
+            ""
+           }
            
           </tbody>
         </table>

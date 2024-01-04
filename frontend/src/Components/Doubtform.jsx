@@ -11,17 +11,22 @@ export default function Doubtform() {
 
       const dispatch = useDispatch();
 
-      const successMessage = useSelector((state) => state.doubtReducer.message);
+      let successMessage = useSelector((state) => state.doubtReducer.message);
 
-      useEffect(() => {
-        if (successMessage) {
-          setDoubtData({
-            subject: '',
-            description: '',
-          });
-          alert(successMessage);
-        }
-      }, [successMessage]);
+      // useEffect(() => {
+      //   if (successMessage && successMessage!="") {
+      //     setDoubtData({
+      //       subject: '',
+      //       description: '',
+      //     });
+      //     alert(successMessage);
+      //     successMessage=""
+         
+      //   }
+      // }, [successMessage]);
+
+
+
 
       const handleChange = (event) => {
         const { name, value } = event.target;
@@ -36,9 +41,21 @@ export default function Doubtform() {
         const { subject, description } = doubtData;
         const token = localStorage.getItem('token');
     
-        dispatch(createDoubtAction({ subject, description }, token));
+        dispatch(createDoubtAction({ subject, description }, token))
 
+        .then((response) => {
+        // Handle success
+        setDoubtData({
+          subject: '',
+          description: '',
+        });
+        alert(response.data.msg);
+      })
+      .catch((error) => {
         
+        console.error('Error creating doubt:', error);
+        alert('Error creating doubt');
+      });
       };
   return (
     <div>

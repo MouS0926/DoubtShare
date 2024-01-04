@@ -24,7 +24,7 @@ export default function Allroutes() {
             <Route path="/assigned" element={<AssignedComponent/> } />
             <Route path="/doubt/:doubtId" element={<Singledoubt/> } />
 
-            <Route path="/chat" element={<Chatcomponent/> } />
+            {/* <Route path="/chat" element={<Chatcomponent/> } /> */}
         </Routes>
 
     </div>
