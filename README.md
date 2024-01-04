@@ -56,6 +56,15 @@ DoubtShare is an innovative real-time doubt solving platform crafted to cater to
 
 ## Deployed Link:
   https://doubt-share-iota.vercel.app/
+
+
+## Sample Student Credential for quick check :
+   User Email :  rik@mail.com
+    Password: rik
+## Sample Tutor Credential for quick check :
+   User Email :  nil@mail.com
+    Password: nil
+  
 ## Tech Stack
 
 - **Frontend:** React
