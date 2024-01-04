@@ -1,13 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutAction } from '../Redux/Action/logoutAction';
 import { useNavigate } from 'react-router-dom';
+import { LuLanguages } from "react-icons/lu";
+
 
 export default function Navbar() {
 
  const loggedinuser=localStorage.getItem("username")
  const token = localStorage.getItem("token");
+ //const { notified, loading, error } = useSelector((state) => state.notifiedReducer);
 
  const navigate=useNavigate()
 
@@ -92,6 +95,20 @@ export default function Navbar() {
           </div>
 
 
+          {/* <div
+            className="relative"
+            data-te-dropdown-ref
+            data-te-dropdown-alignment="end"
+          >
+            
+              <b> |  Language: </b>
+                {loggedinuser} 
+            
+            
+            
+          </div> */}
+
+          
           <div
             className="relative"
             data-te-dropdown-ref

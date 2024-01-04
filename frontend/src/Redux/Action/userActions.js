@@ -35,7 +35,7 @@ export const signupAction = (userData) => async (dispatch) => {
       localStorage.setItem('userId', userId);
   
       dispatch({type:LOGIN_SUCCESS,payload: userData});
-    //   console.log(response.data);
+      console.log(response.data);
     } catch (error) {
       dispatch(loginFailure(error.message));
     }

@@ -17,6 +17,8 @@ export default function Signup() {
 
   const dispatch=useDispatch()
   const user = useSelector((state) => state.userReducer);
+const loading=useSelector((state) => state.userReducer.loading);
+ 
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -57,6 +59,7 @@ export default function Signup() {
               <div className="my-12 border-b text-center">
                 <div className="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2">
                   Sign Up
+                  
                 </div>
               </div>
 
@@ -69,6 +72,7 @@ export default function Signup() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
+                  required
                 />
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
@@ -77,6 +81,7 @@ export default function Signup() {
                   placeholder="Email"
                   value={formData.email}
                   onChange={handleChange}
+                  required
                 />
                 <input
                   className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
@@ -85,6 +90,7 @@ export default function Signup() {
                   placeholder="Password"
                   value={formData.password}
                   onChange={handleChange}
+                  required
                 />
     <select
         
@@ -149,7 +155,9 @@ export default function Signup() {
 
                 <button   className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                  
-                  <span className="ml-" >Sign Up</span>
+                  <span className="ml-" >
+                  {loading?"Signing Up...":" Sign Up"}
+                  </span>
                 </button>
                </form>
                <Link to="/login">Already Registered? Login Here</Link>

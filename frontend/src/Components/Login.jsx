@@ -13,6 +13,7 @@ export default function Login() {
   
   const navigate = useNavigate();
   const user = useSelector((state) => state.loginReducer);
+  const loading=useSelector((store)=>store.loginReducer.loading)
 const userrole=localStorage.getItem("userrole")
 
   const handleChange = (event) => {
@@ -89,7 +90,7 @@ const userrole=localStorage.getItem("userrole")
 
                 <button  onClick={handleLogin} type="button" className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                  
-                  <span className="ml-" >Login</span>
+                  <span className="ml-" >{loading?"Logging In...":"Login"}</span>
                 </button>
                </form>
                <Link to="/">Not Registered yet? Sign Up Here</Link>
