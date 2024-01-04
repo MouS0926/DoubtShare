@@ -60,7 +60,32 @@ DoubtShare is an innovative real-time doubt solving platform crafted to cater to
 - **Backend:** Node.js
 - **Database:** MongoDB
 
+## Run Locally
 
+Clone the project
+
+```bash
+  git clone https://github.com/MouS0926/DoubtShare.git
+```
+
+Go to the project directory
+
+```bash
+  cd frontend
+```
+
+Install dependencies
+
+```bash
+  npm install 
+
+```
+
+Start the frontend 
+
+```bash
+  npm run start
+```
 
 
 Thank You
