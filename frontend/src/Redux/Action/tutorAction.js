@@ -34,7 +34,7 @@ const apiURL="https://doubtshare-api.onrender.com"
     dispatch({ type: FETCH_ASSIGNED_LOADING });
   
     try {
-      const response = await axios.get(`${apiURL}/doubt/notified/${tutorId}`, {
+      const response = await axios.get(`${apiURL}/doubt/assigned/${tutorId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginAction, signupAction } from '../Redux/Action/userActions';
 import { Link, useNavigate } from 'react-router-dom';
@@ -13,7 +13,7 @@ export default function Login() {
   
   const navigate = useNavigate();
   const user = useSelector((state) => state.loginReducer);
-
+const userrole=localStorage.getItem("userrole")
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -24,15 +24,22 @@ export default function Login() {
   };
 
 
-  const handleLogin = async () => {
-    await dispatch(loginAction(formData));
-
-    
-    if (!user.error) {
-      navigate('/dashboard');
-    }
+  const handleLogin =  () => {
+     dispatch(loginAction(formData));
 
   };
+
+
+
+  useEffect(() => {
+    if (!user.error ) {
+      if (userrole === "student") {
+        navigate('/dashboard');
+      } else if (userrole === "tutor") {
+        navigate('/notified');
+      }
+    }
+  }, [user, userrole, navigate]);
  
   // console.log(formData);
   return (

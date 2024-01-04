@@ -41,7 +41,7 @@ export default function NotifiedList() {
             <tr>
             <th scope="col" className="px-6 py-4">#</th>
                   <th scope="col" className="px-6 py-4">Subject</th>
-                  <th scope="col" className="px-6 py-4">Description</th>
+                
                   <th scope="col" className="px-6 py-4">Created At</th>
                   <th scope="col" className="px-6 py-4">Status</th>
                   <th scope="col" className="px-6 py-4">Action</th>
@@ -52,7 +52,7 @@ export default function NotifiedList() {
                   <tr key={index} className="border-b dark:border-neutral-500">
                     <td className="whitespace-nowrap px-6 py-4 font-medium">{index + 1}</td>
                     <td className="whitespace-nowrap px-6 py-4">{el.subject}</td>
-                    <td className="whitespace-nowrap px-6 py-4">{el.description}</td>
+                   
                     <td className="whitespace-nowrap px-6 py-4">{new Date(el.createdAt).toLocaleString()}</td>
                     <td className="whitespace-nowrap px-6 py-4">
                     <span className={`inline-flex items-center rounded-md  px-2 py-1 text-xs font-medium  ring-1 ring-inset ${getStatusColor(el.status)}`}>
@@ -61,17 +61,13 @@ export default function NotifiedList() {
                     </td>
                     <td className="whitespace-nowrap px-6 py-4">
 
-                        <Link to={`/doubt/${el._id}`}>View</Link>
+                        <Link to={`/doubt/${el._id}`}>
+                        <button  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                          View
+                          </button>
+                          </Link>
 
-                        {
-                            el.status=="Open"
-                            ?
-                            <button  class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Accept</button>
-                        :
-                        <button disabled class="rounded-md cursor-not-allowed bg-gray-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                        Accepted</button>
-                        }
+                       
                     
                     </td>
                    

@@ -24,12 +24,14 @@ export default function Sidebar() {
 { loggedinUserrole && loggedinUserrole=="student"
 ?
 <>
+<Link to="/dashboard">
         <li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4 h-12 flex items-center justify-center active">
          <RiDashboard2Line style={{ color: 'white',fontSize: '25px' }}/>
-        
+         
         <span className="ml-3 hidden sm:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
             Dashboard</span>
         </li>
+        </Link>
 
         <Link to="/alldoubts">
         <li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4 h-12 flex items-center justify-center">
@@ -58,13 +60,13 @@ export default function Sidebar() {
 ?
 <>
 
-<li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4 h-12 flex items-center justify-center active">
+{/* <li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4 h-12 flex items-center justify-center active">
        
         <RiDashboard2Line style={{ color: 'white',fontSize: '25px' }}/>
        
         <span className="ml-3 hidden sm:block text-gray-400 font-semibold tracking-wide hover:text-white transition-colors">
             Dashboard</span>
-        </li>
+        </li> */}
 
         <Link to="/notified">
         <li className="hover:bg-gray-800 cursor-pointer sm:justify-start px-4 h-12 flex items-center justify-center">

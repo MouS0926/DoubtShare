@@ -70,7 +70,7 @@ export const createDoubtAction = (doubtData, token) => (dispatch) => {
         url += `?status=${statusFilter}`;
       }
 
-      console.log("Fetch Doubts URL:", url);
+      
       const response = await axios.get(url, {
         headers: {
           Authorization: `Bearer ${token}`,
