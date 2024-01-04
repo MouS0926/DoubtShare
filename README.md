@@ -54,6 +54,8 @@ DoubtShare is an innovative real-time doubt solving platform crafted to cater to
 - `GET /api/doubt/assigned/:tutorId` -  Fetch All assigned Doubts of a particular tutor.
 - `POST /api/doubt/accept/:doubtId` -  Accept Any notified Doubts of a particular tutor.
 
+## Deployed Link:
+  https://doubt-share-iota.vercel.app/
 ## Tech Stack
 
 - **Frontend:** React
